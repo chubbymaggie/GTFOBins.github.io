@@ -1,9 +1,9 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: env /bin/sh
-  sudo-enabled:
-    - code: sudo env /bin/sh
-  suid-enabled:
+  suid:
     - code: ./env /bin/sh -p
+  sudo:
+    - code: sudo env /bin/sh
 ---

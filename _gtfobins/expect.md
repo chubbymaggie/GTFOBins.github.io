@@ -1,9 +1,9 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: expect -c 'spawn /bin/sh;interact'
-  sudo-enabled:
-    - code: sudo expect -c 'spawn /bin/sh;interact'
-  suid-enabled:
+  suid:
     - code: ./expect -c 'spawn /bin/sh -p;interact'
+  sudo:
+    - code: sudo expect -c 'spawn /bin/sh;interact'
 ---

@@ -1,9 +1,9 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: ionice /bin/sh
-  sudo-enabled:
-    - code: sudo ionice /bin/sh
-  suid-enabled:
+  suid:
     - code: ./ionice /bin/sh -p
+  sudo:
+    - code: sudo ionice /bin/sh
 ---

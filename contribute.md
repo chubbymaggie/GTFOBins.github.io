@@ -10,6 +10,7 @@ Each GTFO binary is defined in a file in the [`_gtfobins/`] folder named as `<bi
 The full syntax is the following:
 
 ```
+---
 description: Optional description of the binary
 functions:
   FUNCTION:
@@ -21,14 +22,14 @@ functions:
       code: Code of the example
     - ...
   ...
+---
 ```
 
 Where `FUNCTION` is one of the values described in the [`_data/functions.yml`] file.
 
 Feel free to use any file in the [`_gtfobins/`] folder as an example.
 
-Pull request process
---------------------
+## Pull request process
 
 Vendor software is accepted as well as standard Unix binaries. Binaries and techniques that only works on certain operating systems and versions are accepted and such limitations shall be noted in the `description` field.
 

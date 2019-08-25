@@ -1,9 +1,9 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: zsh
-  sudo-enabled:
-    - code: sudo zsh
-  suid-enabled:
+  suid:
     - code: ./zsh
+  sudo:
+    - code: sudo zsh
 ---

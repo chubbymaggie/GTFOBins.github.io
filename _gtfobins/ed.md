@@ -1,15 +1,28 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: |
         ed
         !/bin/sh
-  sudo-enabled:
+  file-write:
+    - code: |
+        ed file_to_write
+        a
+        DATA
+        .
+        w
+        q
+  file-read:
+    - code: |
+        ed file_to_read
+        ,p
+        q
+  sudo:
     - code: |
         sudo ed
         !/bin/sh
-  suid-limited:
-    - code: |-
+  limited-suid:
+    - code: |
         ./ed
         !/bin/sh
 ---

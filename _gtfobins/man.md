@@ -1,15 +1,13 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: |
         man man
         !/bin/sh
-  sudo-enabled:
+  file-read:
+    - code: man file_to_read
+  sudo:
     - code: |
         sudo man man
-        !/bin/sh
-  suid-limited:
-    - code: |-
-        ./man man
         !/bin/sh
 ---

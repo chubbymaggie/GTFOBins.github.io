@@ -1,9 +1,9 @@
 ---
 functions:
-  exec-interactive:
+  shell:
     - code: setarch $(arch) /bin/sh
-  sudo-enabled:
-    - code: sudo setarch $(arch) /bin/sh
-  suid-enabled:
+  suid:
     - code: ./setarch $(arch) /bin/sh -p
+  sudo:
+    - code: sudo setarch $(arch) /bin/sh
 ---
